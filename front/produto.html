@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SenseVision — Produto e Custos</title>
+  <meta name="description" content="Componentes do protótipo SenseVision e seus valores." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=icons-1" />
+  <link rel="stylesheet" href="css/produto.css?v=icons-1" />
+  <link rel="stylesheet" href="css/dark.css?v=icons-1" />
+<link rel="stylesheet" href="css/icons.css?v=icons-1"><link rel="stylesheet" href="css/responsive.css?v=layout-4"><link rel="stylesheet" href="css/auth.css?v=2"></head>
+<body class="product-page">
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">Sense<span>Vision</span></a>
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="index.html" class="nav__link">Início</a>
+        <a href="instrucoes.html" class="nav__link">Instruções</a>
+        <a href="produto.html" class="nav__link nav__link--active" aria-current="page">Produto</a>
+        <a href="simulador.html" class="nav__link">Simulador</a>
+        <a href="equipe.html" class="nav__link">Equipe</a>
+        <a href="referencias.html" class="nav__link">Referências</a>
+        <a href="jogo.html" class="nav__link">O Jogo</a>
+      </nav>
+      <a href="jogar.html" class="btn btn--pill btn--teal header__cta">Jogar <span class="icon icon--game" aria-hidden="true"></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="product-main">
+    <section class="product-heading">
+      <span class="product-heading__accent" aria-hidden="true"></span>
+      <h1>Produto &amp; Custos</h1>
+      <p class="heading-copy-desktop">Componentes do protótipo SenseVision e seus valores.</p>
+      <p class="heading-copy-mobile">Componentes e valores.</p>
+    </section>
+
+    <section class="components-table" aria-label="Componentes e custos do protótipo">
+      <div class="components-table__header">
+        <strong>Componente</strong>
+        <strong>Mínimo</strong>
+        <strong>Máximo</strong>
+        <strong>Onde comprar</strong>
+      </div>
+
+      <article class="component-row">
+        <span class="component-row__icon" aria-hidden="true"><span class="icon icon--camera" aria-hidden="true"></span></span>
+        <h2>Microcontrolador + Câmera</h2>
+        <p data-mobile="ESP32-CAM com câmera integrada">Raspberry Pi 3 + câmera espiã</p>
+        <strong class="component-row__min" data-mobile="R$ 50">R$ 300,00</strong>
+        <strong class="component-row__max" data-mobile="R$ 80">R$ 500,00</strong>
+        <span class="component-row__store">Mercado Livre/Amazon</span>
+      </article>
+
+      <article class="component-row">
+        <span class="component-row__icon" aria-hidden="true"><span class="icon icon--phone" aria-hidden="true"></span></span>
+        <h2>Componentes Gerais</h2>
+        <p>Botão, buzzer e cabos</p>
+        <strong class="component-row__min" data-mobile="R$ 35">R$ 35,00</strong>
+        <strong class="component-row__max" data-mobile="R$ 50">R$ 50,00</strong>
+        <span class="component-row__store">Mercado Livre/Amazon</span>
+      </article>
+
+      <article class="component-row">
+        <span class="component-row__icon" aria-hidden="true"><span class="icon icon--battery" aria-hidden="true"></span></span>
+        <h2>Alimentação</h2>
+        <p>Bateria Li-Po + módulo carregador</p>
+        <strong class="component-row__min" data-mobile="R$ 40">R$ 40,00</strong>
+        <strong class="component-row__max" data-mobile="R$ 40">R$ 40,00</strong>
+        <span class="component-row__store">Mercado Livre/Amazon</span>
+      </article>
+
+      <article class="component-row">
+        <span class="component-row__icon" aria-hidden="true"><span class="icon icon--glasses" aria-hidden="true"></span></span>
+        <h2>Estrutura dos Óculos</h2>
+        <p>Armação ou impressão 3D</p>
+        <strong class="component-row__min" data-mobile="R$ 40">R$ 40,00</strong>
+        <strong class="component-row__max" data-mobile="R$ 60">R$ 60,00</strong>
+        <span class="component-row__store">Mercado Livre/Amazon</span>
+      </article>
+    </section>
+
+    <section class="recurring-costs" aria-labelledby="recurring-title">
+      <h2 id="recurring-title">Custos Recorrentes</h2>
+      <article>
+        <strong>Google Cloud Vision (OCR)</strong>
+        <span>R$ 0,00 (free tier)</span>
+      </article>
+      <article>
+        <strong>Firebase</strong>
+        <span>R$ 0,00 (free tier)</span>
+      </article>
+    </section>
+
+    <section class="product-total">
+      <span class="product-total__accent" aria-hidden="true"></span>
+      <h2><span class="icon icon--wallet" aria-hidden="true"></span> Custo Total do Protótipo</h2>
+      <p>+30% margem recomendada para imprevistos.</p>
+      <strong data-mobile="R$ 165 – R$ 230">R$500 – R$ 780</strong>
+    </section>
+  </main>
+
+  <footer class="footer product-footer">
+    <div class="container">
+      <p>© 2026&nbsp; SenseVision · TCC 3º Ano</p>
+    </div>
+  </footer>
+  <script src="js/theme.js?v=2"></script>
+  <script src="js/script.js"></script>
+<script src="js/auth.js?v=2"></script></body>
+</html>

@@ -1,0 +1,12 @@
+# Segredos e arquivos locais: nunca versionar
+.env
+.env.*
+.dev.vars
+config.php
+*credentials*.json
+*.pem
+.wrangler/
+node_modules/
+__pycache__/
+Thumbs.db
+.DS_Store

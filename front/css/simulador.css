@@ -1,0 +1,747 @@
+/* SenseVision - Estilos do Simulador Interativo */
+
+.simulador-main {
+  min-height: calc(100vh - 144px);
+  padding: 40px 0 80px;
+  background: var(--page);
+}
+
+.simulador-hero {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 36px;
+  padding: 0 20px;
+}
+
+.simulador-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: rgba(0, 217, 214, 0.12);
+  color: #008c8a;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.simulador-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.simulador-title span {
+  color: var(--cyan);
+}
+
+.simulador-subtitle {
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Container do Simulador */
+.simulador-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 460px minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+/* Painel de Entrada */
+.sim-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
+  border: 1px solid rgba(115, 120, 140, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.sim-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
+}
+
+.sim-card__header {
+  margin-bottom: 22px;
+}
+
+.sim-card__title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.sim-card__desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Input do Teclado */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.sim-input {
+  width: 100%;
+  height: 64px;
+  padding: 0 18px;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fbfcfe;
+  border: 2px solid #e4e7ec;
+  border-radius: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+}
+
+.sim-input:focus {
+  border-color: var(--cyan);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 217, 214, 0.15);
+}
+
+.sim-input::placeholder {
+  color: #98a2b3;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* Exemplos Rápidos */
+.presets-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.presets-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.preset-chip {
+  background: rgba(0, 217, 214, 0.08);
+  color: #008c8a;
+  border: 1px solid rgba(0, 217, 214, 0.2);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-chip:hover {
+  background: var(--cyan);
+  color: #0c0c10;
+  transform: translateY(-1px);
+}
+
+/* Seletor de Frutas */
+.fruit-selector {
+  margin-bottom: 22px;
+}
+
+.fruit-options {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.fruit-btn {
+  height: 48px;
+  border-radius: 12px;
+  border: 2px solid #e4e7ec;
+  background: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.fruit-btn:hover {
+  border-color: var(--cyan);
+  transform: scale(1.05);
+}
+
+.fruit-btn.active {
+  border-color: var(--pink);
+  background: rgba(240, 60, 138, 0.08);
+  box-shadow: 0 0 0 3px rgba(240, 60, 138, 0.15);
+}
+
+/* Teclado Virtual Auxiliar */
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.key-btn {
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #e4e7ec;
+  background: #f8fafc;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.key-btn:hover {
+  background: #edf2f7;
+  border-color: #cbd5e1;
+}
+
+.key-btn.op-key {
+  background: rgba(0, 217, 214, 0.12);
+  color: #008c8a;
+  border-color: rgba(0, 217, 214, 0.25);
+  font-weight: 700;
+}
+
+.key-btn.clear-key {
+  background: rgba(240, 60, 138, 0.1);
+  color: var(--pink);
+  border-color: rgba(240, 60, 138, 0.2);
+}
+
+/* Botão Principal de Ação */
+.btn-calc {
+  width: 100%;
+  height: 56px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, var(--cyan), #00b8b5);
+  color: #0c0c10;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 217, 214, 0.3);
+}
+
+.btn-calc:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 217, 214, 0.4);
+}
+
+.btn-calc:active {
+  transform: translateY(0);
+}
+
+/* Painel de Resultados (Direita) */
+.result-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
+  border: 1px solid rgba(115, 120, 140, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Status Bar / Simulação do Hardware */
+.hw-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: #10101c;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.hw-status__indicators {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hw-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #98a2b3;
+}
+
+.hw-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.hw-sound-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.hw-sound-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Área da Fórmula Abstrata e Concreta */
+.equation-display {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.equation-original {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.equation-label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.fruits-concrete-display {
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.5;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 2px dashed rgba(0, 217, 214, 0.4);
+  color: var(--ink);
+  overflow-x: auto;
+  white-space: normal;
+  word-break: break-word;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Caixa Pedagógica de Narração / TTS */
+.narration-box {
+  background: linear-gradient(135deg, rgba(240, 60, 138, 0.06), rgba(0, 217, 214, 0.08));
+  border: 1px solid rgba(240, 60, 138, 0.15);
+  border-radius: 20px;
+  padding: 22px 24px;
+  position: relative;
+}
+
+.narration-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.narration-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.narration-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.narration-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-speak {
+  padding: 8px 18px;
+  border-radius: 99px;
+  border: none;
+  background: var(--pink);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-speak:hover {
+  background: #db2777;
+  transform: scale(1.02);
+}
+
+.speed-toggle {
+  font-size: 12px;
+  color: var(--muted);
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 99px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Passos Pedagógicos */
+.steps-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px 24px;
+}
+
+.steps-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pedagogical-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #334155;
+  border-bottom: 1px dashed #f1f5f9;
+}
+
+.pedagogical-step-item:last-child {
+  border-bottom: none;
+}
+
+.step-bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 217, 214, 0.15);
+  color: #008c8a;
+  font-size: 11px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Seção Teórica CPA */
+.cpa-section {
+  max-width: 1200px;
+  margin: 54px auto 0;
+  padding: 0 24px;
+}
+
+.cpa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cpa-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(115, 120, 140, 0.12);
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.03);
+}
+
+.cpa-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cpa-card:nth-child(1) .cpa-tag {
+  background: rgba(0, 217, 214, 0.12);
+  color: #008c8a;
+}
+
+.cpa-card:nth-child(2) .cpa-tag {
+  background: rgba(240, 60, 138, 0.12);
+  color: #c72c70;
+}
+
+.cpa-card:nth-child(3) .cpa-tag {
+  background: rgba(153, 102, 255, 0.12);
+  color: #7952b3;
+}
+
+.cpa-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.cpa-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* Animação */
+@keyframes popIn {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .simulador-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cpa-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Suporte ao Modo Escuro */
+body.theme-dark .simulador-main {
+  background: #0a0a12;
+}
+
+body.theme-dark .sim-card,
+body.theme-dark .result-card,
+body.theme-dark .steps-box,
+body.theme-dark .cpa-card {
+  background: #12121f;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-dark .simulador-title,
+body.theme-dark .sim-card__title,
+body.theme-dark .equation-original,
+body.theme-dark .narration-text,
+body.theme-dark .steps-title,
+body.theme-dark .cpa-card h3 {
+  color: #ffffff;
+}
+
+body.theme-dark .sim-input {
+  background: #181828;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+body.theme-dark .equation-display {
+  background: #181828;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .fruits-concrete-display {
+  background: #10101c;
+  color: #ffffff;
+}
+
+body.theme-dark .pedagogical-step-item {
+  color: #cbd5e1;
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+body.theme-dark .fruit-btn,
+body.theme-dark .key-btn,
+body.theme-dark .speed-toggle {
+  background: #1a1a2b;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.theme-dark .key-btn:hover {
+  background: #232338;
+}
+
+/* =====================================================================
+   MODO CÂMERA AO VIVO
+   ===================================================================== */
+
+/* Botão principal do live mode */
+.btn-live {
+  width: 100%;
+  height: 48px;
+  border-radius: 16px;
+  border: 2px dashed rgba(0, 217, 214, 0.5);
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-live:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(0, 217, 214, 0.06);
+}
+
+.btn-live.live-active {
+  border-style: solid;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+  font-weight: 700;
+}
+
+/* Painel de status ao vivo */
+.live-panel {
+  margin-top: 14px;
+  border-radius: 16px;
+  background: rgba(16, 185, 129, 0.07);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 16px 18px;
+}
+
+.live-panel__pulse {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+
+/* Ponto pulsante vermelho "ao vivo" */
+.live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  animation: livePulse 1.4s infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70%  { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.live-status-text {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  transition: color 0.3s ease;
+}
+
+.live-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.live-hint code {
+  background: rgba(0, 0, 0, 0.07);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+  font-family: monospace;
+}
+
+/* Dark mode — live panel */
+body.theme-dark .live-panel {
+  background: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+body.theme-dark .live-hint code {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+body.theme-dark .btn-live {
+  color: #64748b;
+  border-color: rgba(0, 217, 214, 0.3);
+}
+
+body.theme-dark .btn-live:hover {
+  color: var(--cyan);
+}
+
+body.theme-dark .btn-live.live-active {
+  color: #10b981;
+}
+
+.btn-speak.is-speaking{background:#ef4444;color:#fff}
+
+/* As colunas não podem crescer além da tela por causa do conteúdo (frutas/blocos) */
+.sim-card, .result-card { min-width: 0; }
