@@ -1,0 +1,78 @@
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem("sv-theme"); } catch (_) {}
+  let isDark = (params.get("theme") || savedTheme) === "dark";
+
+  const nav = document.querySelector(".nav");
+  if (nav && !nav.querySelector(".menu-theme")) {
+    nav.insertAdjacentHTML("beforeend", `
+      <div class="menu-theme">
+        <span class="menu-theme__icon" aria-hidden="true"><span class="icon icon--moon" aria-hidden="true"></span></span>
+        <span class="menu-theme__label">Modo Escuro</span>
+        <button class="theme-switch" type="button" aria-label="Alternar modo escuro" aria-pressed="false">
+          <span class="theme-switch__thumb"></span>
+        </button>
+      </div>
+      <p class="menu-version">v1.0 · Colégio UNASP · 2026</p>
+    `);
+  }
+
+  const headerInner = document.querySelector(".header__inner");
+  if (headerInner && !headerInner.querySelector(".desktop-theme-switch")) {
+    headerInner.insertAdjacentHTML("beforeend", `
+      <button class="desktop-theme-switch theme-switch" type="button" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="desktop-theme-switch__icon" aria-hidden="true"><span class="icon icon--moon" aria-hidden="true"></span></span>
+        <span class="desktop-theme-switch__label">Modo escuro</span>
+      </button>
+    `);
+  }
+
+  const switchButtons = document.querySelectorAll(".theme-switch");
+
+  function updateInternalLinks() {
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("//")) return;
+
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || !url.pathname.endsWith(".html")) return;
+
+      if (isDark) url.searchParams.set("theme", "dark");
+      else url.searchParams.delete("theme");
+
+      link.href = `${url.pathname.split("/").pop()}${url.search}${url.hash}`;
+    });
+  }
+
+  function applyTheme(updateAddress) {
+    try { localStorage.setItem("sv-theme", isDark ? "dark" : "light"); } catch (_) {}
+    document.body.classList.toggle("theme-dark", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+    switchButtons.forEach((button) => button.setAttribute("aria-pressed", String(isDark)));
+    const desktopLabel = document.querySelector(".desktop-theme-switch__label");
+    const desktopIcon = document.querySelector(".desktop-theme-switch__icon");
+    if (desktopLabel) desktopLabel.textContent = isDark ? "Modo claro" : "Modo escuro";
+    const desktopButton = document.querySelector(".desktop-theme-switch");
+    if (desktopButton) desktopButton.setAttribute("aria-label", isDark ? "Ativar modo claro" : "Ativar modo escuro");
+    if (desktopIcon) desktopIcon.innerHTML = `<span class="icon icon--${isDark ? 'sun' : 'moon'}" aria-hidden="true"></span>`;
+
+    if (updateAddress) {
+      const url = new URL(window.location.href);
+      if (isDark) url.searchParams.set("theme", "dark");
+      else url.searchParams.delete("theme");
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    }
+
+    updateInternalLinks();
+  }
+
+  switchButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      isDark = !isDark;
+      applyTheme(true);
+    });
+  });
+
+  applyTheme(false);
+})();

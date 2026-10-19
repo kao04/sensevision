@@ -1,0 +1,16 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Segredos: nunca versionar
+.env
+.env.*
+.dev.vars
+*credentials*.json

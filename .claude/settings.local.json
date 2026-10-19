@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node .agents/skills/design-taste-frontend/scripts/lint.mjs index.html contato.html)",
+      "Bash(node *)"
+    ]
+  }
+}
